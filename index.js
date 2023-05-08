@@ -30,11 +30,29 @@ class Room {
   }
 
   static totalOccupancyPercentage(rooms, startDate, endDate) {
-    return;
+    const roomsPercentages = [];
+    for (const room of rooms) {
+      roomsPercentages.push(room.occupancyPercentage(startDate, endDate));
+    }
+    const sumOfPercentages = roomsPercentages.reduce((acc, cur) => acc + cur);
+    return parseFloat((sumOfPercentages / roomsPercentages.length).toFixed(2));
   }
   
   static availableRooms(rooms, startDate, endDate) {
-    return;
+    const availableRooms = [];
+    for (const room of rooms) {
+      let isAvailable = true;
+      for (const {checkIn, checkOut} of room.bookings) {
+        if (checkIn <= endDate && checkOut >= startDate) {
+          isAvailable = false;
+          break;
+        }
+      }
+      if (isAvailable) {
+        availableRooms.push(room);
+      }
+    }
+    return availableRooms;
   }
 }
 

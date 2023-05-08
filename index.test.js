@@ -44,27 +44,27 @@ describe('room methods', () => {
     expect(rooms[0].occupancyPercentage(startDate, endDate)).toBe(20);
   });
 
-  // test('hotel has 58.3% of occupancy', () => {
-  //   const startDate = new Date('2023-05-01');
-  //   const endDate = new Date('2023-05-08');
-  //   expect(Room.totalOccupancyPercentage(rooms, startDate, endDate)).toBe(58.33);
-  // });
-  // test('hotel has 42.85% of occupancy', () => {
-  //   const startDate = new Date('2023-04-25');
-  //   const endDate = new Date('2023-05-01');
-  //   expect(Room.totalOccupancyPercentage(rooms, startDate, endDate)).toBe(42.85);
-  // });
+  test('hotel has 58.3% of occupancy', () => {
+    const startDate = new Date('2023-05-01');
+    const endDate = new Date('2023-05-08');
+    expect(Room.totalOccupancyPercentage(rooms, startDate, endDate)).toBe(58.33);
+  });
+  test('hotel has 42.86% of occupancy', () => {
+    const startDate = new Date('2023-04-25');
+    const endDate = new Date('2023-05-01');
+    expect(Room.totalOccupancyPercentage(rooms, startDate, endDate)).toBe(42.86);
+  });
 
-  // test('room 1 is available', () => {
-  //   const startDate = new Date('2023-04-20');
-  //   const endDate = new Date('2023-04-25');
-  //   expect(Room.availableRooms(rooms, startDate, endDate)).toBe([rooms[0]]);
-  // });
-  // test('room 2 and 3 are available', () => {
-  //   const startDate = new Date('2023-05-01');
-  //   const endDate = new Date('2023-05-03');
-  //   expect(Room.availableRooms(rooms, startDate, endDate)).toBe([rooms[2], rooms[3]]);
-  // });
+  test('room 1 is available', () => {
+    const startDate = new Date('2023-04-20');
+    const endDate = new Date('2023-04-25');
+    expect(Room.availableRooms(rooms, startDate, endDate)).toStrictEqual([rooms[0]]);
+  });
+  test('room 2 and 3 are available', () => {
+    const startDate = new Date('2023-05-01');
+    const endDate = new Date('2023-05-03');
+    expect(Room.availableRooms(rooms, startDate, endDate)).toStrictEqual([rooms[1], rooms[2]]);
+  });
 });
 
 // describe('booking methods', () => {
