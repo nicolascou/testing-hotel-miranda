@@ -28,7 +28,7 @@ describe('room methods', () => {
     const date = new Date('2023-05-04');
     expect(rooms[0].isOccupied(date)).toBe(false);
   });
-  
+
   test('room has 75% of occupancy', () => {
     const startDate = new Date('2023-05-01');
     const endDate = new Date('2023-05-08');
@@ -38,6 +38,17 @@ describe('room methods', () => {
     const startDate = new Date('2023-04-20');
     const endDate = new Date('2023-04-30');
     expect(rooms[0].occupancyPercentage(startDate, endDate)).toBe(20);
+  });
+
+  test('hotel has 58.3% of occupancy', () => {
+    const startDate = new Date('2023-05-01');
+    const endDate = new Date('2023-05-08');
+    expect(Room.totalOccupancyPercentage(rooms, startDate, endDate)).toBe(58.33);
+  });
+  test('hotel has 42.85% of occupancy', () => {
+    const startDate = new Date('2023-04-25');
+    const endDate = new Date('2023-05-01');
+    expect(Room.totalOccupancyPercentage(rooms, startDate, endDate)).toBe(42.85);
   });
 
   test('room 1 is available', () => {
