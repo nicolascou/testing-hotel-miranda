@@ -24,7 +24,7 @@ class Room {
 }
 
 class Booking {
-  constructor(name, email, checkIn, checkOut, discount, room) {
+  constructor(name, email, checkIn, checkOut, discount, room=null) {
     this.name = name;
     this.email = email;
     this.checkIn = checkIn;
