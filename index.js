@@ -37,3 +37,5 @@ class Booking {
     return;
   }
 }
+
+module.exports = { Room, Booking }
