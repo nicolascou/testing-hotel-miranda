@@ -17,4 +17,14 @@ describe('room methods', () => {
     const date = new Date('2023-05-04');
     expect(room1.isOccupied(date)).toBe(false);
   });
+  test('room has 75% of occupancy', () => {
+    const fromDate = new Date('2023-05-01');
+    const toDate = new Date('2023-05-08');
+    expect(room1.occupancyPercentage(fromDate, toDate)).toBe(75);
+  });
+  test('room has 20% of occupancy', () => {
+    const fromDate = new Date('2023-04-20');
+    const toDate = new Date('2023-04-30');
+    expect(room1.occupancyPercentage(fromDate, toDate)).toBe(20);
+  });
 });
