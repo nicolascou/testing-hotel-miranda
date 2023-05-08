@@ -67,14 +67,14 @@ describe('room methods', () => {
   });
 });
 
-// describe('booking methods', () => {
-//   test('fee is equal to 111.80 eur', () => {
-//     expect(bookings[1].getFee()).toBe(11180);
-//   });
-//   test('fee is equal to 441.60 eur', () => {
-//     expect(bookings[7].getFee()).toBe(44160);
-//   });
-//   test('fee is equal to 648 eur', () => {
-//     expect(bookings[4].getFee()).toBe(64800);
-//   });
-// });
+describe('booking methods', () => {
+  test('fee is equal to 111.80 eur', () => {
+    expect(bookings[1].getFee()).toBe(11180);
+  });
+  test('fee is equal to 306 eur', () => {
+    expect(bookings[4].getFee()).toBe(30600);
+  });
+  test('fee is equal to 441.60 eur', () => {
+    expect(bookings[7].getFee()).toBe(44160);
+  });
+});

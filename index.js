@@ -67,7 +67,10 @@ class Booking {
   }
 
   getFee() {
-    return;
+    const timeDiff = Math.abs(this.checkOut.getTime() - this.checkIn.getTime());
+    const days = Math.ceil(timeDiff / (1000 * 3600 * 24));
+    const final_price = (this.room.rate * days) * (1 - this.room.discount / 100) * (1 - this.discount / 100);
+    return parseInt(final_price);
   }
 }
 
