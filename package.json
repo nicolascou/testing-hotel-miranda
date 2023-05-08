@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "test": "jest --watchAll"
+  },
   "dependencies": {
     "jest": "^29.5.0"
   }
