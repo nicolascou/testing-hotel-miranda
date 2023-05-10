@@ -23,7 +23,7 @@ rooms.forEach((room) => {
   room.bookings = bookings.filter((booking) => booking.room === room);
 });
 
-describe('room methods', () => {
+describe('isOccupied()', () => {
   test('room is occupied', () => {
     const date = new Date('2023-05-02');
     expect(rooms[0].isOccupied(date)).toBe(true);
@@ -32,7 +32,9 @@ describe('room methods', () => {
     const date = new Date('2023-05-04');
     expect(rooms[0].isOccupied(date)).toBe(false);
   });
+});
 
+describe('occupancyPercentage()', () => {
   test('room has 75% of occupancy', () => {
     const startDate = new Date('2023-05-01');
     const endDate = new Date('2023-05-08');
@@ -43,7 +45,9 @@ describe('room methods', () => {
     const endDate = new Date('2023-04-29');
     expect(rooms[0].occupancyPercentage(startDate, endDate)).toBe(20);
   });
+});
 
+describe('totalOccupancyPercentage()', () => {
   test('hotel has 58.3% of occupancy', () => {
     const startDate = new Date('2023-05-01');
     const endDate = new Date('2023-05-08');
@@ -54,7 +58,9 @@ describe('room methods', () => {
     const endDate = new Date('2023-05-01');
     expect(Room.totalOccupancyPercentage(rooms, startDate, endDate)).toBe(42.86);
   });
+});
 
+describe('availableRooms()', () => {
   test('room 1 is available', () => {
     const startDate = new Date('2023-04-20');
     const endDate = new Date('2023-04-25');
@@ -67,14 +73,14 @@ describe('room methods', () => {
   });
 });
 
-describe('booking methods', () => {
-  test('fee is equal to 111.80 eur', () => {
+describe('getFee()', () => {
+  test('fee is equal to 11180 cents', () => {
     expect(bookings[1].getFee()).toBe(11180);
   });
-  test('fee is equal to 306 eur', () => {
+  test('fee is equal to 306 cents', () => {
     expect(bookings[4].getFee()).toBe(30600);
   });
-  test('fee is equal to 441.60 eur', () => {
+  test('fee is equal to 44160 cents', () => {
     expect(bookings[7].getFee()).toBe(44160);
   });
 });
