@@ -1,8 +1,16 @@
 {
   "scripts": {
-    "test": "jest --watchAll"
+    "test": "jest"
+  },
+  "jest": {
+    "testMatch": [
+      "**/?(*.)+(spec|test).[j]s?(x)"
+    ]
   },
   "dependencies": {
     "jest": "^29.5.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.1"
   }
 }
