@@ -1,4 +1,4 @@
-import { Booking, Room } from '../index';
+import { Booking, Room } from './index';
 
 const rooms = [
   new Room('room1', [], 13000, 50),
