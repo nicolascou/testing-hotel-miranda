@@ -1,15 +1,10 @@
-export class Room {
-  public name: string;
-  public bookings: Booking[];
-  public rate: number;
-  public discount: number;
-  
-  constructor(name: string, bookings: Booking[], rate: number, discount: number) {
-    this.name = name; 
-    this.bookings = bookings;
-    this.rate = rate;
-    this.discount = discount;
-  }
+export class Room { 
+  constructor(
+    private name: string, 
+    public bookings: Booking[], 
+    public rate: number, 
+    public discount: number
+  ) {}
 
   public isOccupied(date: Date) {
     for (const {checkIn, checkOut} of this.bookings) {
@@ -62,21 +57,14 @@ export class Room {
 }
 
 export class Booking {
-  public name: string;
-  public email: string;
-  public checkIn: Date;
-  public checkOut: Date;
-  public discount: number;
-  public room: Room;
-  
-  constructor(name: string, email: string, checkIn: Date, checkOut: Date, discount: number, room: Room) {
-    this.name = name;
-    this.email = email;
-    this.checkIn = checkIn;
-    this.checkOut = checkOut;
-    this.discount = discount;
-    this.room = room;
-  }
+  constructor(
+    private name: string, 
+    private email: string, 
+    public checkIn: Date, 
+    public checkOut: Date, 
+    public discount: number, 
+    public room: Room
+  ) {}
 
   public getFee() {
     const timeDiff = Math.abs(this.checkOut.getTime() - this.checkIn.getTime());
